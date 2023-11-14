@@ -12,7 +12,7 @@ class CustomBlocObserver extends BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
     super.onChange(bloc, change);
-    log("CHANGE: $change");
+    log("CHANGE Called: $change");
   }
 
   @override
