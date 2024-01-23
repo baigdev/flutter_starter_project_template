@@ -16,5 +16,6 @@ class NavigationRouteNames {
 
   static const String initialRoute = '/splash';
   static const String authRoute = '/auth';
+  static const String homeRoute = '/home';
 
 }

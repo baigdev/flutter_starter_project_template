@@ -24,7 +24,7 @@ double getResponsiveValue(BuildContext context, double baseValue) {
 class ResponsiveView extends StatelessWidget {
   const ResponsiveView({
     Key? key,
-    this.mobile,
+    required this.mobile,
     this.desktop,
     this.tablet,
   }) : super(key: key);
@@ -35,13 +35,13 @@ class ResponsiveView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (ResponsiveBreakpoints.of(context).largerThan(MOBILE)) {
-      return tablet ??
+    if (ResponsiveBreakpoints.of(context).isTablet) {
+      return tablet ?? mobile ??
           const Center(
             child: Text("Tablet View"),
           );
-    } else if (ResponsiveBreakpoints.of(context).largerThan(TABLET)) {
-      return desktop ?? tablet ?? const Center(child: Text("Desktop View"));
+    } else if (ResponsiveBreakpoints.of(context).isDesktop) {
+      return desktop  ?? tablet ?? const Center(child: Text("Desktop View"));
     } else {
       return mobile ??
           const Center(

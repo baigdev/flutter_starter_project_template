@@ -76,8 +76,8 @@ class _MyAppState extends State<MyApp> {
                 breakpoints: [
                   const Breakpoint(start: 0, end: 360, name: 'SMALL_MOBILE'),
                   const Breakpoint(start: 361, end: 746, name: MOBILE),
-                  const Breakpoint(start: 747, end: 800, name: TABLET),
-                  const Breakpoint(start: 801, end: 1920, name: DESKTOP),
+                  const Breakpoint(start: 747, end: 1000, name: TABLET),
+                  const Breakpoint(start: 1001, end: 1920, name: DESKTOP),
                   const Breakpoint(
                       start: 1921, end: double.infinity, name: '4K'),
                 ],

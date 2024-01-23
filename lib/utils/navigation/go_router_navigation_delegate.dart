@@ -1,4 +1,6 @@
 import 'package:app_template/features/authentication/presentation/pages/view/auth_view.dart';
+import 'package:app_template/features/dashboard/presentation/pages/view/dashboard_view.dart';
+import 'package:app_template/features/home/presentation/pages/view/home_view.dart';
 import 'package:app_template/utils/extensions/string_extensions.dart';
 import 'package:app_template/utils/navigation/route_names.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +21,7 @@ class GoRouterNavigationDelegate {
 
   final localStorage = getItInstance.get<LocalStorage>();
   final parentNavigationKey = GlobalKey<NavigatorState>();
+  final _nestedNavigation1Key = GlobalKey<NavigatorState>();
   late final GoRouter router = GoRouter(
     navigatorKey: parentNavigationKey,
     debugLogDiagnostics: true,
@@ -53,6 +56,26 @@ class GoRouterNavigationDelegate {
         builder: (BuildContext ctx, GoRouterState state) =>
             const AuthenticationView(),
       ),
+      StatefulShellRoute.indexedStack(
+          builder: (context, state, navigationShell) {
+            return DashboardPage(
+              navigationShell: navigationShell,
+            );
+          },
+          branches: [
+            StatefulShellBranch(
+              navigatorKey: _nestedNavigation1Key,
+              routes: [
+                GoRoute(
+                    path: NavigationRouteNames.homeRoute,
+                    parentNavigatorKey: _nestedNavigation1Key,
+                    pageBuilder: (context, state) => const NoTransitionPage(
+                          child: HomeView(),
+                        ),
+                    routes: const []),
+              ],
+            ),
+          ]),
     ],
   );
 }

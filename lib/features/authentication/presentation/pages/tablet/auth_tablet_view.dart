@@ -1,5 +1,6 @@
 import 'package:app_template/utils/constant/constant.dart';
 import 'package:app_template/utils/extensions/context_extensions.dart';
+import 'package:app_template/utils/navigation/app_navigations.dart';
 import 'package:app_template/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -119,7 +120,9 @@ class AuthenticationTabletView extends StatelessWidget {
                       width: AppUtils.kAppButtonWidth(context),
                       height: AppUtils.kAppButtonHeight(context),
                       child: FilledButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          AppNavigations().navigateFromAuthToDashboard(context: context);
+                        },
                         child: Text(
                           "Login",
                           style: TextStyle(

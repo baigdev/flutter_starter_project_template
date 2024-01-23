@@ -1,3 +1,4 @@
+import 'package:app_template/utils/navigation/route_names.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,4 +21,9 @@ class AppNavigations {
     context.pop(value);
   }
 
+  void navigateFromAuthToDashboard({required BuildContext context}) {
+    context.go(
+      NavigationRouteNames.homeRoute,
+    );
+  }
 }
