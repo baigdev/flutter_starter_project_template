@@ -1,3 +1,4 @@
+import 'package:app_template/utils/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/responsive.dart';
@@ -85,12 +86,12 @@ class AppUtils {
 
   static double kAppButtonWidth(BuildContext context) => getResponsiveValue(
         context,
-        500,
+        context.screenWidth,
       );
 
   static double kAppButtonHeight(BuildContext context) => getResponsiveValue(
         context,
-        60,
+        50,
       );
 
   static SizedBox sizedBoxHeight(

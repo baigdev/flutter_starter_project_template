@@ -43,7 +43,7 @@ class GoRouterNavigationDelegate {
       //       .jobSearchRoute; //goto home page (Right now just passed auth page.)
       // }
       //
-      // return null;
+      return null;
     },
     initialLocation: NavigationRouteNames.authRoute,
     routes: [

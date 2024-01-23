@@ -1,4 +1,7 @@
 import 'package:flutter/widgets.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+
+
 
 double getResponsiveValue(BuildContext context, double baseValue) {
   final screenWidth = MediaQuery.of(context).size.width;
@@ -8,13 +11,11 @@ double getResponsiveValue(BuildContext context, double baseValue) {
   if (screenWidth < 600) {
     // Small screen size
     return baseValue * 0.8;
-  } else if (screenWidth >= 600 && screenWidth < 1200) {
+  } else if (screenWidth >= 600 && screenWidth < 1920) {
     // Medium screen size
     return baseValue;
   } else {
-    if (screenWidth > 2000) {
-      return baseValue * 2.5;
-    }
+  
     // Large screen size
     return baseValue * 1.2;
   }
@@ -34,33 +35,18 @@ class ResponsiveView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        var width = constraints.maxWidth;
-        if (width < 700) {
-          return mobile ??
-              const Center(
-                child: Text(
-                  "Mobile View",
-                ),
-              );
-        } else if (width > 700 && width < 1200) {
-          return tablet ??
-              const Center(
-                child: Text(
-                  "Tablet View",
-                ),
-              );
-        } else {
-          return desktop ??
-              tablet ??
-              const Center(
-                child: Text(
-                  "Desktop View",
-                ),
-              );
-        }
-      },
-    );
+    if (ResponsiveBreakpoints.of(context).largerThan(MOBILE)) {
+      return tablet ??
+          const Center(
+            child: Text("Tablet View"),
+          );
+    } else if (ResponsiveBreakpoints.of(context).largerThan(TABLET)) {
+      return desktop ?? tablet ?? const Center(child: Text("Desktop View"));
+    } else {
+      return mobile ??
+          const Center(
+            child: Text("Mobile View"),
+          );
+    }
   }
 }
