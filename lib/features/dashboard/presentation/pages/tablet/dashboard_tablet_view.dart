@@ -1,4 +1,3 @@
-import 'package:app_template/features/dashboard/presentation/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
