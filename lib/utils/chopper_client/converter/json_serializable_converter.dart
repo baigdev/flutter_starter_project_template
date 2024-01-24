@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:chopper/chopper.dart';
 
-import '../exception/response_error.dart';
+
+import '../../../core/error/response_error.dart';
 import 'json_type_parser.dart';
 
 class JsonSerializableConverter extends JsonConverter {

@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../exception/response_error.dart';
+import '../../../core/error/response_error.dart';
+
+
 
 part 'api_result.freezed.dart';
 

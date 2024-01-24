@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:json_annotation/json_annotation.dart';
 
-import '../exception/response_error.dart';
+import '../../../core/error/response_error.dart';
 import 'base_response.dart';
 
 @JsonSerializable(genericArgumentFactories: true)
