@@ -1,3 +1,4 @@
+import 'package:app_template/core/error/response_error.dart';
 import 'package:chopper/chopper.dart';
 import '../constant/api_routes.dart';
 import 'converter/json_serializable_converter.dart';
@@ -17,6 +18,7 @@ class ChopperClientInstance {
 
   static const converter = JsonSerializableConverter({
     Resource: Resource.fromJsonFactory,
+    ResponseError: ResponseError.fromJsonFactory
   });
 
   static ChopperClient? client;
