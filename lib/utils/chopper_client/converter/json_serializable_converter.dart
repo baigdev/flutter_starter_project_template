@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:chopper/chopper.dart';
 
-
 import '../../../core/error/response_error.dart';
 import 'json_type_parser.dart';
 
@@ -55,7 +54,7 @@ class JsonSerializableConverter extends JsonConverter {
     final jsonRes = await super.convertError(response);
 
     var result = jsonRes.copyWith<ResponseError>(
-      body: ResponseError(errorStatus: jsonRes.body.toString()),
+      body: ResponseError.fromJsonFactory(jsonRes.body),
     );
 
     return result;
