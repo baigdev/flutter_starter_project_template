@@ -93,7 +93,8 @@ class GoRouterNavigationDelegate {
                           .addUserRoute.convertRoutePathToRouteName,
                       name: NavigationRouteNames
                           .addUserRoute.convertRoutePathToRouteName,
-                      pageBuilder: (context, state) => const NoTransitionPage(
+                      pageBuilder: (context, state) => const MaterialPage(
+                        fullscreenDialog: true,
                         child: AddUserView(),
                       ),
                     ),

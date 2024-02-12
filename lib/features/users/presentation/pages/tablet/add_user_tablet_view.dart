@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/add_user_form.dart';
 
-class AddUserDesktopView extends StatelessWidget {
-  const AddUserDesktopView({super.key});
+class AddUserTabletView extends StatelessWidget {
+  const AddUserTabletView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
+    return  Scaffold(
+      appBar: AppBar(
+        title: const Text("Add User"),
+      ),
+      body: const SafeArea(
         child: Padding(
           padding: EdgeInsets.all(AppUtils.paddingAllSides),
           child: AddUserForm(),

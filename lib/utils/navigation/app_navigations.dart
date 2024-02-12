@@ -29,7 +29,7 @@ class AppNavigations {
   }
 
   void navigateFromUsersToAddUser({required BuildContext context}) {
-    context.pushNamed(
+    context.goNamed(
       NavigationRouteNames.addUserRoute.convertRoutePathToRouteName,
     );
   }

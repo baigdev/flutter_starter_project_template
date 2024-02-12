@@ -10,6 +10,9 @@ class UserMobileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Users"),
+      ),
       body: const SafeArea(
         child: Padding(
           padding: EdgeInsets.all(AppUtils.paddingAllSides),

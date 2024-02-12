@@ -1,9 +1,10 @@
+import 'package:app_template/utils/constant/app_snackbar.dart';
 import 'package:app_template/utils/extensions/context_extensions.dart';
-import 'package:app_template/utils/extensions/responsive_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../../utils/constant/constant.dart';
+import '../../../../utils/navigation/app_navigations.dart';
 import '../../../../widgets/responsive.dart';
 
 class UserResponsiveGrid extends StatelessWidget {
@@ -70,7 +71,10 @@ class UserResponsiveGrid extends StatelessWidget {
                             Icons.edit,
                             size: getResponsiveValue(context, 14),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            AppNavigations()
+                                .navigateFromUsersToAddUser(context: context);
+                          },
                           label: Text(
                             "Edit",
                             style: TextStyle(
@@ -88,7 +92,36 @@ class UserResponsiveGrid extends StatelessWidget {
                             size: getResponsiveValue(context, 14),
                             color: context.theme.colorScheme.error,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (ctx) => AlertDialog(
+                                content: const Text(
+                                  "Are you sure you want to delete this user?",
+                                ),
+                                actions: [
+                                  TextButton(
+                                    child: const Text("Yes"),
+                                    onPressed: () {
+                                      AppNavigations()
+                                          .navigateBack(context: context);
+                                      AppSnackBar().showSuccessSnackBar(
+                                          context: context,
+                                          successMsg:
+                                              "User Deleted Successfully");
+                                    },
+                                  ),
+                                  TextButton(
+                                    child: const Text("No"),
+                                    onPressed: () {
+                                      AppNavigations()
+                                          .navigateBack(context: context);
+                                    },
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
                           label: Text(
                             "Delete",
                             style: TextStyle(
