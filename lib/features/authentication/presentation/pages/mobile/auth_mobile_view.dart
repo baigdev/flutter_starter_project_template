@@ -35,7 +35,8 @@ class AuthenticationMobileView extends StatelessWidget {
                   style: TextStyle(
                     fontSize: getResponsiveValue(context, 14),
                     fontWeight: FontWeight.w900,
-                    color: Colors.black54,
+                    color: Colors.grey.shade500,
+
                   ),
                 ),
                 AppUtils.sizedBoxHeight(
@@ -46,6 +47,7 @@ class AuthenticationMobileView extends StatelessWidget {
                   style: TextStyle(
                     fontSize: getResponsiveValue(context, 14),
                     fontWeight: FontWeight.w600,
+
                   ),
                 ),
                 AppUtils.sizedBoxHeight(context, defaultValue: 8),
@@ -81,7 +83,7 @@ class AuthenticationMobileView extends StatelessWidget {
                           style: TextStyle(
                             fontSize: getResponsiveValue(context, 14),
                             fontWeight: FontWeight.w900,
-                            color: Colors.black54,
+                            color: Colors.grey.shade500,
                           ),
                         ),
                       ),
@@ -131,7 +133,7 @@ class AuthenticationMobileView extends StatelessWidget {
                       style: TextStyle(
                         fontSize: getResponsiveValue(context, 14),
                         fontWeight: FontWeight.w700,
-                        color: Colors.black54,
+                        color: Colors.grey.shade500,
                       ),
                     ),
                     Flexible(

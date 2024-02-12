@@ -110,7 +110,7 @@ class AppUtils {
     double defaultValue = 10,
   }) =>
       SizedBox(
-        height: getResponsiveValue(
+        width: getResponsiveValue(
           context,
           defaultValue,
         ),

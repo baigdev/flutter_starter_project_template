@@ -2,6 +2,8 @@ import 'package:app_template/utils/constant/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../home/presentation/widgets/home_header.dart';
+
 class DashboardDesktopPage extends StatelessWidget {
   const DashboardDesktopPage({
     super.key,
@@ -81,7 +83,19 @@ class DashboardDesktopPage extends StatelessWidget {
             onDestinationSelected: onDestinationSelected,
           ),
           Expanded(
-            child: body,
+            child: Column(
+              children: [
+                AppUtils.sizedBoxHeight(context),
+                const  Padding(
+                  padding:  EdgeInsets.all(
+                    AppUtils.paddingAllSides,
+                  ),
+                  child:  HomeHeaderView(),
+                ),
+                AppUtils.sizedBoxHeight(context),
+                Expanded(child: body),
+              ],
+            ),
           ),
         ],
       ),

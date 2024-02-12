@@ -96,7 +96,7 @@ class AuthenticationTabletView extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: getResponsiveValue(context, 14),
                                 fontWeight: FontWeight.w900,
-                                color: Colors.black54,
+                                color: Colors.grey.shade500,
                               ),
                             ),
                           ),
@@ -142,7 +142,7 @@ class AuthenticationTabletView extends StatelessWidget {
                           style: TextStyle(
                             fontSize: getResponsiveValue(context, 14),
                             fontWeight: FontWeight.w700,
-                            color: Colors.black54,
+                            color: Colors.grey.shade500,
                           ),
                         ),
                         Flexible(

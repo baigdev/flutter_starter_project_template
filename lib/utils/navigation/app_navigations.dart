@@ -1,3 +1,4 @@
+import 'package:app_template/utils/extensions/string_extensions.dart';
 import 'package:app_template/utils/navigation/route_names.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
@@ -24,6 +25,12 @@ class AppNavigations {
   void navigateFromAuthToDashboard({required BuildContext context}) {
     context.go(
       NavigationRouteNames.homeRoute,
+    );
+  }
+
+  void navigateFromUsersToAddUser({required BuildContext context}) {
+    context.pushNamed(
+      NavigationRouteNames.addUserRoute.convertRoutePathToRouteName,
     );
   }
 }

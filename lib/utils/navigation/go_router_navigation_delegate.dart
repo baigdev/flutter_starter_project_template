@@ -1,6 +1,8 @@
 import 'package:app_template/features/authentication/presentation/pages/view/auth_view.dart';
 import 'package:app_template/features/dashboard/presentation/pages/view/dashboard_view.dart';
 import 'package:app_template/features/home/presentation/pages/view/home_view.dart';
+import 'package:app_template/features/users/presentation/pages/add_user_view.dart';
+import 'package:app_template/features/users/presentation/pages/users_view.dart';
 import 'package:app_template/utils/extensions/string_extensions.dart';
 import 'package:app_template/utils/navigation/route_names.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +24,7 @@ class GoRouterNavigationDelegate {
   final localStorage = getItInstance.get<LocalStorage>();
   final parentNavigationKey = GlobalKey<NavigatorState>();
   final _nestedNavigation1Key = GlobalKey<NavigatorState>();
+  final _nestedNavigationUserKey = GlobalKey<NavigatorState>();
   late final GoRouter router = GoRouter(
     navigatorKey: parentNavigationKey,
     debugLogDiagnostics: true,
@@ -73,6 +76,29 @@ class GoRouterNavigationDelegate {
                           child: HomeView(),
                         ),
                     routes: const []),
+              ],
+            ),
+            StatefulShellBranch(
+              navigatorKey: _nestedNavigationUserKey,
+              routes: [
+                GoRoute(
+                  path: NavigationRouteNames.usersRoute,
+                  parentNavigatorKey: _nestedNavigationUserKey,
+                  pageBuilder: (context, state) => const NoTransitionPage(
+                    child: UsersView(),
+                  ),
+                  routes: [
+                    GoRoute(
+                      path: NavigationRouteNames
+                          .addUserRoute.convertRoutePathToRouteName,
+                      name: NavigationRouteNames
+                          .addUserRoute.convertRoutePathToRouteName,
+                      pageBuilder: (context, state) => const NoTransitionPage(
+                        child: AddUserView(),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ]),
