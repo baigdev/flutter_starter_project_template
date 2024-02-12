@@ -25,6 +25,7 @@ class AppImages {
   AppImages._internal();
 
   static const String appIcon = "$_iconsDirectory/app_logo.png";
+  static const String googleIcon = "$_iconsDirectory/google_icon.svg";
 }
 
 class AppFonts {

@@ -29,11 +29,13 @@ class AuthenticationTabletView extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(AppUtils.appTextFieldPadding),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SvgPicture.asset("assets/icons/app_icon.svg",
-                        semanticsLabel: 'App Logo'),
+                    SvgPicture.asset(
+                      "assets/icons/app_icon.svg",
+                      semanticsLabel: 'App Logo',
+                    ),
                     AppUtils.sizedBoxHeight(context),
                     Text(
                       "Login",
@@ -54,112 +56,123 @@ class AuthenticationTabletView extends StatelessWidget {
                     AppUtils.sizedBoxHeight(
                       context,
                     ),
-                    Text(
-                      "User Name",
-                      style: TextStyle(
-                        fontSize: getResponsiveValue(context, 14),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    AppUtils.sizedBoxHeight(context, defaultValue: 8),
-                    const TextField(
-                      decoration:
-                          InputDecoration(hintText: "Enter your username"),
-                    ),
-                    AppUtils.sizedBoxHeight(context),
-                    Text(
-                      "Password",
-                      style: TextStyle(
-                        fontSize: getResponsiveValue(context, 14),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    AppUtils.sizedBoxHeight(context, defaultValue: 8),
-                    const TextField(
-                      decoration:
-                          InputDecoration(hintText: "Enter your password"),
-                    ),
-                    AppUtils.sizedBoxHeight(context),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(
-            
-                          child: CheckboxListTile.adaptive(
-                            value: false,
-                            onChanged: (val) {},
-                            dense: true,
-                            controlAffinity: ListTileControlAffinity.leading,
-                            title: Text(
-                              "Remember Me",
-                              style: TextStyle(
-                                fontSize: getResponsiveValue(context, 14),
-                                fontWeight: FontWeight.w900,
-                                color: Colors.grey.shade500,
-                              ),
-                            ),
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Forgot Password?",
-                            textAlign: TextAlign.end,
-                            style: TextStyle(
-                              fontSize: getResponsiveValue(context, 14),
-                              fontWeight: FontWeight.w700,
-                              color: context.theme.primaryColor,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    AppUtils.sizedBoxHeight(context),
+                    // Text(
+                    //   "User Name",
+                    //   style: TextStyle(
+                    //     fontSize: getResponsiveValue(context, 14),
+                    //     fontWeight: FontWeight.w600,
+                    //   ),
+                    // ),
+                    // AppUtils.sizedBoxHeight(context, defaultValue: 8),
+                    // const TextField(
+                    //   decoration:
+                    //       InputDecoration(hintText: "Enter your username"),
+                    // ),
+                    // AppUtils.sizedBoxHeight(context),
+                    // Text(
+                    //   "Password",
+                    //   style: TextStyle(
+                    //     fontSize: getResponsiveValue(context, 14),
+                    //     fontWeight: FontWeight.w600,
+                    //   ),
+                    // ),
+                    // AppUtils.sizedBoxHeight(context, defaultValue: 8),
+                    // const TextField(
+                    //   decoration:
+                    //       InputDecoration(hintText: "Enter your password"),
+                    // ),
+                    // AppUtils.sizedBoxHeight(context),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   crossAxisAlignment: CrossAxisAlignment.center,
+                    //   children: [
+                    //     Expanded(
+                    //
+                    //       child: CheckboxListTile.adaptive(
+                    //         value: false,
+                    //         onChanged: (val) {},
+                    //         dense: true,
+                    //         controlAffinity: ListTileControlAffinity.leading,
+                    //         title: Text(
+                    //           "Remember Me",
+                    //           style: TextStyle(
+                    //             fontSize: getResponsiveValue(context, 14),
+                    //             fontWeight: FontWeight.w900,
+                    //             color: Colors.grey.shade500,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //     TextButton(
+                    //       onPressed: () {},
+                    //       child: Text(
+                    //         "Forgot Password?",
+                    //         textAlign: TextAlign.end,
+                    //         style: TextStyle(
+                    //           fontSize: getResponsiveValue(context, 14),
+                    //           fontWeight: FontWeight.w700,
+                    //           color: context.theme.primaryColor,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+                    // AppUtils.sizedBoxHeight(context),
                     SizedBox(
                       width: AppUtils.kAppButtonWidth(context),
                       height: AppUtils.kAppButtonHeight(context),
-                      child: FilledButton(
+                      child: TextButton.icon(
+                        icon: SvgPicture.asset(
+                          AppImages.googleIcon,
+                        ),
+                        style: context.theme.textButtonTheme.style?.copyWith(
+                          shape: MaterialStatePropertyAll(
+                              RoundedRectangleBorder(
+                                  borderRadius: AppUtils.kBorderRadiusCircular,
+                                  side: BorderSide(
+                                      color: context.theme.primaryColor))),
+                        ),
                         onPressed: () {
-                          AppNavigations().navigateFromAuthToDashboard(context: context);
+                          AppNavigations()
+                              .navigateFromAuthToDashboard(context: context);
                         },
-                        child: Text(
-                          "Login",
+                        label: Text(
+                          "Continue with Google",
                           style: TextStyle(
                             fontSize: getResponsiveValue(context, 16),
-                            fontWeight: FontWeight.w700,
+                            fontWeight: AppFontWeight().semiBoldFontWeight,
                           ),
                         ),
                       ),
                     ),
-                    AppUtils.sizedBoxHeight(context),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Don't have an account?",
-                          style: TextStyle(
-                            fontSize: getResponsiveValue(context, 14),
-                            fontWeight: FontWeight.w700,
-                            color: Colors.grey.shade500,
-                          ),
-                        ),
-                        Flexible(
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Signup",
-                              style: TextStyle(
-                                  fontSize: getResponsiveValue(context, 14),
-                                  fontWeight: FontWeight.w700,
-                                  color: context.theme.primaryColor,
-                                  decoration: TextDecoration.underline),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    // AppUtils.sizedBoxHeight(context),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   crossAxisAlignment: CrossAxisAlignment.center,
+                    //   children: [
+                    //     Text(
+                    //       "Don't have an account?",
+                    //       style: TextStyle(
+                    //         fontSize: getResponsiveValue(context, 14),
+                    //         fontWeight: FontWeight.w700,
+                    //         color: Colors.grey.shade500,
+                    //       ),
+                    //     ),
+                    //     Flexible(
+                    //       child: TextButton(
+                    //         onPressed: () {},
+                    //         child: Text(
+                    //           "Signup",
+                    //           style: TextStyle(
+                    //               fontSize: getResponsiveValue(context, 14),
+                    //               fontWeight: FontWeight.w700,
+                    //               color: context.theme.primaryColor,
+                    //               decoration: TextDecoration.underline),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
               ),
