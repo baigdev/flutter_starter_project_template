@@ -42,115 +42,142 @@ class AuthenticationMobileView extends StatelessWidget {
                 AppUtils.sizedBoxHeight(
                   context,
                 ),
-                Text(
-                  "User Name",
-                  style: TextStyle(
-                    fontSize: getResponsiveValue(context, 14),
-                    fontWeight: FontWeight.w600,
-
-                  ),
-                ),
-                AppUtils.sizedBoxHeight(context, defaultValue: 8),
-                const TextField(
-                  decoration: InputDecoration(hintText: "Enter your username"),
-                ),
-                AppUtils.sizedBoxHeight(context),
-                Text(
-                  "Password",
-                  style: TextStyle(
-                    fontSize: getResponsiveValue(context, 14),
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                AppUtils.sizedBoxHeight(context, defaultValue: 8),
-                const TextField(
-                  decoration: InputDecoration(hintText: "Enter your password"),
-                ),
-                AppUtils.sizedBoxHeight(context),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: CheckboxListTile.adaptive(
-                        value: false,
-                        onChanged: (val) {},
-                        dense: true,
-                        controlAffinity: ListTileControlAffinity.leading,
-                        title: Text(
-                          "Remember Me",
-                          style: TextStyle(
-                            fontSize: getResponsiveValue(context, 14),
-                            fontWeight: FontWeight.w900,
-                            color: Colors.grey.shade500,
-                          ),
-                        ),
-                      ),
+                SizedBox(
+                  width: AppUtils.kAppButtonWidth(context),
+                  height: AppUtils.kAppButtonHeight(context),
+                  child: TextButton.icon(
+                    icon: SvgPicture.asset(
+                      AppImages.googleIcon,
                     ),
-                    Expanded(
-                      flex: 2,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Forgot Password?",
-                          style: TextStyle(
-                            fontSize: getResponsiveValue(context, 14),
-                            fontWeight: FontWeight.w700,
-                            color: context.theme.primaryColor,
-                          ),
-                        ),
-                      ),
+                    style: context.theme.textButtonTheme.style?.copyWith(
+                      shape: MaterialStatePropertyAll(
+                          RoundedRectangleBorder(
+                              borderRadius: AppUtils.kBorderRadiusCircular,
+                              side: BorderSide(
+                                  color: context.theme.primaryColor))),
                     ),
-                  ],
-                ),
-                AppUtils.sizedBoxHeight(context),
-                Center(
-                  child: SizedBox(
-                    width: AppUtils.kAppButtonWidth(context),
-                    height: AppUtils.kAppButtonHeight(context),
-                    child: FilledButton(
-                      onPressed: () {
-                        AppNavigations().navigateFromAuthToDashboard(context: context);
-                      },
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                          fontSize: getResponsiveValue(context, 16),
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                AppUtils.sizedBoxHeight(context),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Don't have an account?",
+                    onPressed: () {
+                      AppNavigations()
+                          .navigateFromAuthToDashboard(context: context);
+                    },
+                    label: Text(
+                      "Continue with Google",
                       style: TextStyle(
-                        fontSize: getResponsiveValue(context, 14),
-                        fontWeight: FontWeight.w700,
-                        color: Colors.grey.shade500,
+                        fontSize: getResponsiveValue(context, 16),
+                        fontWeight: AppFontWeight().semiBoldFontWeight,
                       ),
                     ),
-                    Flexible(
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Signup",
-                          style: TextStyle(
-                              fontSize: getResponsiveValue(context, 14),
-                              fontWeight: FontWeight.w700,
-                              color: context.theme.primaryColor,
-                              decoration: TextDecoration.underline),
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
+                // Text(
+                //   "User Name",
+                //   style: TextStyle(
+                //     fontSize: getResponsiveValue(context, 14),
+                //     fontWeight: FontWeight.w600,
+                //
+                //   ),
+                // ),
+                // AppUtils.sizedBoxHeight(context, defaultValue: 8),
+                // const TextField(
+                //   decoration: InputDecoration(hintText: "Enter your username"),
+                // ),
+                // AppUtils.sizedBoxHeight(context),
+                // Text(
+                //   "Password",
+                //   style: TextStyle(
+                //     fontSize: getResponsiveValue(context, 14),
+                //     fontWeight: FontWeight.w600,
+                //   ),
+                // ),
+                // AppUtils.sizedBoxHeight(context, defaultValue: 8),
+                // const TextField(
+                //   decoration: InputDecoration(hintText: "Enter your password"),
+                // ),
+                // AppUtils.sizedBoxHeight(context),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: [
+                //     Expanded(
+                //       flex: 3,
+                //       child: CheckboxListTile.adaptive(
+                //         value: false,
+                //         onChanged: (val) {},
+                //         dense: true,
+                //         controlAffinity: ListTileControlAffinity.leading,
+                //         title: Text(
+                //           "Remember Me",
+                //           style: TextStyle(
+                //             fontSize: getResponsiveValue(context, 14),
+                //             fontWeight: FontWeight.w900,
+                //             color: Colors.grey.shade500,
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //     Expanded(
+                //       flex: 2,
+                //       child: TextButton(
+                //         onPressed: () {},
+                //         child: Text(
+                //           "Forgot Password?",
+                //           style: TextStyle(
+                //             fontSize: getResponsiveValue(context, 14),
+                //             fontWeight: FontWeight.w700,
+                //             color: context.theme.primaryColor,
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                // AppUtils.sizedBoxHeight(context),
+                // Center(
+                //   child: SizedBox(
+                //     width: AppUtils.kAppButtonWidth(context),
+                //     height: AppUtils.kAppButtonHeight(context),
+                //     child: FilledButton(
+                //       onPressed: () {
+                //         AppNavigations().navigateFromAuthToDashboard(context: context);
+                //       },
+                //       child: Text(
+                //         "Login",
+                //         style: TextStyle(
+                //           fontSize: getResponsiveValue(context, 16),
+                //           fontWeight: FontWeight.w700,
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                // AppUtils.sizedBoxHeight(context),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: [
+                //     Text(
+                //       "Don't have an account?",
+                //       style: TextStyle(
+                //         fontSize: getResponsiveValue(context, 14),
+                //         fontWeight: FontWeight.w700,
+                //         color: Colors.grey.shade500,
+                //       ),
+                //     ),
+                //     Flexible(
+                //       child: TextButton(
+                //         onPressed: () {},
+                //         child: Text(
+                //           "Signup",
+                //           style: TextStyle(
+                //               fontSize: getResponsiveValue(context, 14),
+                //               fontWeight: FontWeight.w700,
+                //               color: context.theme.primaryColor,
+                //               decoration: TextDecoration.underline),
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ),
